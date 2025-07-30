@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Outlet, Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
@@ -7,8 +8,8 @@ const LandingPage = () => {
         <p className="font-semibold text-xl text-center">RescueRoam</p>
       </div>
       <div className="flex flex-col gap-y-2  items-start ps-5">
-        <button className="hover:cursor-pointer">Link to Login</button>
-        <button className="hover:cursor-pointer">Link to Sign Up</button>
+        <Link to="/Login">Link to Sign In</Link>
+        <Link to="/Signup">Link to Sign Up</Link>
       </div>
     </>
   );
