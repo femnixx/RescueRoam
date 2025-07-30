@@ -7,8 +7,8 @@ const LandingPage = () => {
         <p className="font-semibold text-xl text-center">RescueRoam</p>
       </div>
       <div className="flex flex-col gap-y-2  items-start ps-5">
-        <button>Link to Login</button>
-        <button>Link to Sign Up</button>
+        <button className="hover:cursor-pointer">Link to Login</button>
+        <button className="hover:cursor-pointer">Link to Sign Up</button>
       </div>
     </>
   );
