@@ -1,1 +1,1 @@
-// Copy and paste needed firebase utils heres
+// Copy and paste needed firebase utils here
