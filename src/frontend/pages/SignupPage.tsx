@@ -28,21 +28,23 @@ const SignupPage = () => {
 
   return (
     <>
-      <div className="">
-        <h1 className="text-center mt-5">Create An Account</h1>
-        <div className="ps-5 mt-5">
-          <p>Username</p>
-          <input type="username" className="border-1 rounded-lg" value={username} onChange={(e) => setUsername(e.target.value)}/>
+      <form onSubmit={handleSignup}>
+        <div className="">
+          <h1 className="text-center mt-5">Create An Account</h1>
+          <div className="ps-5 mt-5">
+            <p>Username</p>
+            <input type="username" className="border-1 rounded-lg" value={username} onChange={(e) => setUsername(e.target.value)}/>
+          </div>
+          <div className="ps-5 mt-5">
+            <p>Email</p>
+            <input type="email" className="border-1 rounded-lg" value={email} onChange={(e) => setEmail(e.target.value)}/>
+          </div>
+          <div className="ps-5 mt-5">
+            <p>Password</p>
+            <input type="password" className="border-1 rounded-lg" value={password} onChange={(e) => setPassword(e.target.value)}/>
+          </div>
         </div>
-        <div className="ps-5 mt-5">
-          <p>Email</p>
-          <input type="email" className="border-1 rounded-lg" value={email} onChange={(e) => setEmail(e.target.value)}/>
-        </div>
-        <div className="ps-5 mt-5">
-          <p>Password</p>
-          <input type="password" className="border-1 rounded-lg" value={password} onChange={(e) => setPassword(e.target.value)}/>
-        </div>
-      </div>
+      </form>
     </>
   );
 };
