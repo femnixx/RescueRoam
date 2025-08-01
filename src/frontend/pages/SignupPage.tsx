@@ -7,8 +7,9 @@ const SignupPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const auth = getAuth();
   
+  const auth = getAuth();
+
   // handlesignup
   const handleSignup = async () => {
     try {
