@@ -11,7 +11,7 @@ const SignupPage = () => {
   
   const auth = getAuth();
 
-  // handle sign up logic
+  // handle sign up logic for site from firebase
   const handleSignup = async () => {
     try {
        await createUserWithEmailAndPassword(auth, email, password)
