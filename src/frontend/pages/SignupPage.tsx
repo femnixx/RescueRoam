@@ -45,7 +45,7 @@ const SignupPage = () => {
             <input type="password" className="border-1 rounded-lg" value={password} onChange={(e) => setPassword(e.target.value)}/>
           </div>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className="ps-5 mt-5">Submit</button>
       </form>
     </>
   );
