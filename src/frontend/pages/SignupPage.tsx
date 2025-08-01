@@ -2,28 +2,27 @@ import React from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { FirebaseError } from "firebase/app";
-
+import { auth } from "../../backend/Firebase.ts"
 const SignupPage = () => {
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
-  const auth = getAuth();
 
   // handle sign up logic for site from firebase
-  const handleSignup = async () => {
+  const handleSignup = async (e: React.FormEvent) => {
+    e.preventDefault();
+
     try {
-       await createUserWithEmailAndPassword(auth, email, password)
-       .then((userCredential) => {
-        const user = userCredential.user;
-        window.alert("Successfully signed in!");
-       })
+       await createUserWithEmailAndPassword(auth, email, password);
+       window.alert("successfuly signed in!");
     } catch (error) {
       if (FirebaseError) {
         console.log("Caught exception firebase error: ", FirebaseError);
       } else {
         console.error("Unknown error caught", error);
+        window.alert("Error upon attempt to creaste a new user")
       }
     }
   }
@@ -46,6 +45,7 @@ const SignupPage = () => {
             <input type="password" className="border-1 rounded-lg" value={password} onChange={(e) => setPassword(e.target.value)}/>
           </div>
         </div>
+        <button type="submit">Submit</button>
       </form>
     </>
   );
