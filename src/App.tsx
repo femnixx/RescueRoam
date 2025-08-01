@@ -9,6 +9,8 @@ import SignupPage from "./frontend/pages/SignupPage";
 import { initializeApp } from "firebase/app";
 
 function App() {
+
+  const initFirebase = initializeApp;
   return (
     <>
       <BrowserRouter>
