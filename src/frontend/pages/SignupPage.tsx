@@ -35,17 +35,20 @@ const SignupPage = () => {
           <div className="ps-5 mt-5">
             <p>Username</p>
             <input type="username" className="border-1 rounded-lg" value={username} onChange={(e) => setUsername(e.target.value)}/>
+            <p className={`text-red-500 ${username === "" ? "block" : "hidden"}`}>* Username is required</p>
           </div>
           <div className="ps-5 mt-5">
-            <p>Email</p>
+            <p className="">Email</p>
             <input type="email" className="border-1 rounded-lg" value={email} onChange={(e) => setEmail(e.target.value)}/>
+            <p className={`text-red-500 ${email === "" ? "block" : "hidden"}`}>* Email is required</p>
           </div>
           <div className="ps-5 mt-5">
             <p>Password</p>
             <input type="password" className="border-1 rounded-lg" value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <p className={`text-red-500 ${password === "" ? "block" : "hidden"}`}>* Password is required</p>
           </div>
         </div>
-        <button type="submit" className="ps-5 mt-5">Submit</button>
+        <button type="submit" className="ps-5 mt-5 px-2 border-1 rounded-lg flex justify-center items-center ml-5">Submit</button>
       </form>
     </>
   );
