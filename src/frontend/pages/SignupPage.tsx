@@ -3,6 +3,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { FirebaseError } from "firebase/app";
 import { auth } from "../../backend/Firebase.ts"
+
 const SignupPage = () => {
 
   const [username, setUsername] = useState("");
@@ -20,12 +21,14 @@ const SignupPage = () => {
     } catch (error) {
       if (FirebaseError) {
         console.log("Caught exception firebase error: ", FirebaseError);
-      } else {
-        console.error("Unknown error caught", error);
-        window.alert("Error upon attempt to creaste a new user")
+      } if (password.length < 8) {
+          window.alert("Password must be at least 8 characters.")
+          console.log('Weak password.')
+        } else {
+          console.log('Unknown error detected: ', error)
+        }
       }
     }
-  }
 
   return (
     <>
