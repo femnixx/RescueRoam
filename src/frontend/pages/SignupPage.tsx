@@ -1,7 +1,18 @@
 import React from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
+import { useState } from "react";
 const SignupPage = () => {
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const auth = getAuth();
+  
+  // handlesignup
+  const handleSignup = () => {
+    
+  }
+
   return (
     <>
       <div className="">
