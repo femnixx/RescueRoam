@@ -11,7 +11,7 @@ const SignupPage = () => {
   
   const auth = getAuth();
 
-  // handlesignup
+  // handle sign up logic
   const handleSignup = async () => {
     try {
        await createUserWithEmailAndPassword(auth, email, password)
