@@ -13,8 +13,6 @@ const LoginPage = () => {
 
     try {
       signInWithEmailAndPassword(auth, email, password);
-      console.log("Signed in successful");
-      window.alert(`Signed in with user: ${email} successful.`);
     } catch (error) {
       if (FirebaseError) {
         console.log("Firebase erorr: ", FirebaseError)

@@ -1,8 +1,23 @@
+import { onAuthStateChanged } from "firebase/auth";
 import React, { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
+import {auth} from "../../backend/Firebase";
 
 const LandingPage = () => {
-  return (
+  const user = auth.currentUser;
+  const displayName = user?.displayName;
+  const displayEmail = user?.email;
+  if (user !== null) {
+    return (
+      <><div>
+        Hi there! Currently logged in as: 
+        <br>
+        </br>
+        {displayEmail}
+        </div></>
+    )
+  } else {
+    return (
     <>
       <div className="flex justify-center items-center">
         <p className="font-semibold text-xl text-center">RescueRoam</p>
@@ -14,5 +29,7 @@ const LandingPage = () => {
     </>
   );
 };
+  }
+  
 
 export default LandingPage;
