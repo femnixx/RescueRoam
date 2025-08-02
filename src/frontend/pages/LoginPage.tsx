@@ -10,21 +10,21 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const user = auth.currentUser;
   const navigate = useNavigate();
-
   const handleLogin = async (e:React.FormEvent) => {
     e.preventDefault();
 
+
     try {
       const login = await signInWithEmailAndPassword(auth, email, password);
-      if (login) {
-        window.alert(`Successfully logged in with: ${user?.email}`)
+       if (login) {
+        window.alert('Successfully logged in! as: ' + login.user?.email) 
         navigate("/")
       }
     } catch (error) {
       if (FirebaseError) {
         console.log("Firebase erorr: ", FirebaseError)
       } else {
-        console.log ("Unknown error: ", error)
+        console.log("Unknown error: ", error)
       }
     }
   } 
