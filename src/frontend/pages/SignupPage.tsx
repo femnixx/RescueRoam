@@ -2,9 +2,10 @@ import React from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { FirebaseError } from "firebase/app";
-import { auth } from "../../backend/Firebase.ts"
+import { auth, db } from "../../backend/Firebase.ts"
 import { Navigate, useNavigate } from "react-router-dom";
 import LoginPage from "./LoginPage.tsx";
+import { collection, setDoc, addDoc } from "firebase/firestore";
 
 const SignupPage = () => {
 
@@ -13,6 +14,7 @@ const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const user = auth.currentUser
 
   // handle sign up logic for site from firebase
   const handleSignup = async (e: React.FormEvent) => {
@@ -33,6 +35,24 @@ const SignupPage = () => {
         }
       }
     }
+
+  const addToCollection = async () => {
+    try {
+      const docRef = await addDoc(collection(db, "users"), {
+        uid: user?.uid,
+        username: username,
+        email: user?.email,
+        createdAt: new Date()
+      });
+      console.log("User successfully added with ID: ", docRef.id)
+    } catch (error) {
+      if (FirebaseError) {
+        console.log("Firebase error: ", FirebaseError)
+      } else {
+        console.log("Unexpected error: ", error)
+      }
+    }
+  }
 
   return (
     <>

@@ -4,6 +4,8 @@ import { useState } from "react";
 import { auth } from "../../backend/Firebase";
 import { FirebaseError } from "firebase/app";
 import { useNavigate } from "react-router-dom";
+import { Firestore } from "firebase/firestore";
+import { db } from "../../backend/Firebase"
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
