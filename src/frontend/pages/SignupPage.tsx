@@ -14,45 +14,43 @@ const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const user = auth.currentUser
 
   // handle sign up logic for site from firebase
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-
     try {
-       await createUserWithEmailAndPassword(auth, email, password);
-       window.alert("successfuly signed in!");
-       navigate("/login")
-      } catch (error) {
-      if (FirebaseError) {
-        console.log("Caught exception firebase error: ", FirebaseError);
-      } if (password.length < 8) {
-          window.alert("Password must be at least 8 characters.")
-          console.log('Weak password.')
-        } else {
-          console.log('Unknown error detected: ', error)
-        }
-      }
-    }
-
-  const addToCollection = async () => {
-    try {
-      const docRef = await addDoc(collection(db, "users"), {
-        uid: user?.uid,
-        username: username,
-        email: user?.email,
-        createdAt: new Date()
-      });
-      console.log("User successfully added with ID: ", docRef.id)
+      await createUserWithEmailAndPassword(auth, email, password);
+      const user = auth.currentUser;
+      console.log("Current user: ", user)
+      window.alert("Sign up successful!")
+      navigate("/Login")
     } catch (error) {
       if (FirebaseError) {
-        console.log("Firebase error: ", FirebaseError)
+        console.log("FIrebase error: ", FirebaseError)
       } else {
-        console.log("Unexpected error: ", error)
+        console.log("Firestore error: ", error)
       }
     }
   }
+
+  // const addToCollection = async (user: any) => {
+
+  //   try {
+  //     const docRef = await addDoc(collection(db, "users"), {
+  //       uid: user?.uid,
+  //       username: username,
+  //       email: user?.email,
+  //       createdAt: new Date()
+  //     });
+  //     console.log("User successfully added with ID: ", docRef.id)
+  //   } catch (error) {
+  //     if (FirebaseError) {
+  //       console.log("Firebase error: ", FirebaseError)
+  //     } else {
+  //       console.log("Unexpected error: ", error)
+  //     }
+  //   }
+  // }
 
   return (
     <>
