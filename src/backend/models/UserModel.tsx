@@ -7,3 +7,5 @@ const userModel = {
     email: user?.email || "",
     createdAt: new Date()
 }
+
+export default userModel;
