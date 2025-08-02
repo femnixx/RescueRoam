@@ -5,7 +5,7 @@ import { FirebaseError } from "firebase/app";
 import { auth, db } from "../../backend/Firebase.ts"
 import { Navigate, useNavigate } from "react-router-dom";
 import LoginPage from "./LoginPage.tsx";
-import { collection, setDoc, addDoc } from "firebase/firestore";
+import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 
 const SignupPage = () => {
 
@@ -18,39 +18,27 @@ const SignupPage = () => {
   // handle sign up logic for site from firebase
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
+    
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      const user = auth.currentUser;
-      console.log("Current user: ", user)
-      window.alert("Sign up successful!")
+     const createUser = await createUserWithEmailAndPassword(auth, email,password); 
+     if (createUser) {
+        // add a new document 
+    await setDoc(doc(db, "users", createUser.user.uid), {
+      uid: createUser.user.uid,
+      username: username,
+      email: email,
+      createdAt: new Date()
+    });
+      window.alert(`Successfully signed in with username ` + username + " with user ID: " + createUser.user.uid) 
+      console.log("Successfully signed in with user: " + createUser.user.uid)
       navigate("/Login")
+    } 
     } catch (error) {
       if (FirebaseError) {
-        console.log("FIrebase error: ", FirebaseError)
-      } else {
-        console.log("Firestore error: ", error)
+        console.log("")
       }
     }
   }
-
-  // const addToCollection = async (user: any) => {
-
-  //   try {
-  //     const docRef = await addDoc(collection(db, "users"), {
-  //       uid: user?.uid,
-  //       username: username,
-  //       email: user?.email,
-  //       createdAt: new Date()
-  //     });
-  //     console.log("User successfully added with ID: ", docRef.id)
-  //   } catch (error) {
-  //     if (FirebaseError) {
-  //       console.log("Firebase error: ", FirebaseError)
-  //     } else {
-  //       console.log("Unexpected error: ", error)
-  //     }
-  //   }
-  // }
 
   return (
     <>
