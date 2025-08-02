@@ -1,5 +1,5 @@
 import React from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, validatePassword } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../../backend/Firebase";
 import { FirebaseError } from "firebase/app";
@@ -45,7 +45,7 @@ const LoginPage = () => {
               <p className={`text-red-500 ${password === "" ? "block" : "hidden"}`}>* Password required</p>
             </div>
           </div>
-                  <button type="submit" className="ps-5 mt-5 px-2 border-1 rounded-lg flex justify-center items-center ml-5">Submit</button>
+          <button type="submit" className="ps-5 mt-5 px-2 border-1 rounded-lg flex justify-center items-center ml-5">Submit</button>
 
         </div>
       </form>

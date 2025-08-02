@@ -29,11 +29,13 @@ const LandingPage = () => {
 
   if (user !== null) {
     return (
-      <><div>
+      <>
+      <div>
         <p>Currently signed in as: {displayEmail}</p>
         <p>Click here to sign out: </p>
-        <button className="hover:cursor-pointer border-1 rounded-lg ps-5">Sign out</button>
-        </div></>
+        <form onClick={handleLogOut}><button className="hover:cursor-pointer border-1 rounded-lg ps-5">Sign out</button></form>
+        </div>
+        </>
     )
   } else {
     return (
