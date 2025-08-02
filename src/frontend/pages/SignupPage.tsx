@@ -3,13 +3,16 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { FirebaseError } from "firebase/app";
 import { auth } from "../../backend/Firebase.ts"
+import { Navigate, useNavigate } from "react-router-dom";
+import LoginPage from "./LoginPage.tsx";
 
 const SignupPage = () => {
+
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+  const navigate = useNavigate();
 
   // handle sign up logic for site from firebase
   const handleSignup = async (e: React.FormEvent) => {
@@ -18,7 +21,8 @@ const SignupPage = () => {
     try {
        await createUserWithEmailAndPassword(auth, email, password);
        window.alert("successfuly signed in!");
-    } catch (error) {
+       navigate("/login")
+      } catch (error) {
       if (FirebaseError) {
         console.log("Caught exception firebase error: ", FirebaseError);
       } if (password.length < 8) {
@@ -52,6 +56,8 @@ const SignupPage = () => {
           </div>
         </div>
         <button type="submit" className="ps-5 mt-5 px-2 border-1 rounded-lg flex justify-center items-center ml-5">Submit</button>
+
+        <button className="border-1 ms-5 mt-5 rounded-lg">Return to landing page</button>
       </form>
     </>
   );

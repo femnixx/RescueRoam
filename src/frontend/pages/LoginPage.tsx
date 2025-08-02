@@ -3,16 +3,23 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../../backend/Firebase";
 import { FirebaseError } from "firebase/app";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const user = auth.currentUser;
+  const navigate = useNavigate();
 
-  const handleLogin = (e:React.FormEvent) => {
+  const handleLogin = async (e:React.FormEvent) => {
     e.preventDefault();
 
     try {
-      signInWithEmailAndPassword(auth, email, password);
+      const login = await signInWithEmailAndPassword(auth, email, password);
+      if (login) {
+        window.alert(`Successfully logged in with: ${user?.email}`)
+        navigate("/")
+      }
     } catch (error) {
       if (FirebaseError) {
         console.log("Firebase erorr: ", FirebaseError)
