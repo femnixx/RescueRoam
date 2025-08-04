@@ -41,7 +41,7 @@ const LandingPage = () => {
     return (
     <>
       <div className="flex justify-center items-center">
-        <p className="font-semibold text-xl text-center">RescueRoam</p>
+        <p className="font-semibold text-xl text-center mt-5">RescueRoam</p>
       </div>
       <div className="flex flex-col gap-y-2  items-start ps-5">
         <Link to="/Login">Link to Sign In</Link>
