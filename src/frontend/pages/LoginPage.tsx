@@ -47,8 +47,8 @@ const LoginPage = () => {
               <p className={`text-red-500 ${password === "" ? "block" : "hidden"}`}>* Password required</p>
             </div>
           </div>
-          <button type="submit" className="ps-5 mt-5 px-2 border-1 rounded-lg flex justify-center items-center ml-5">Submit</button>
-        <p className="">Hi there</p>
+          <button type="submit" className="ps-5 mt-5 px-2 border-1 rounded-lg flex justify-center items-center ml-5 text-center">Submit</button>
+        <p className="ms-5 mt-5">Already have an account? <strong className="font-semibold hover:underline hover:cursor-pointer">Sign In</strong></p>
         </div>
       </form>
     </>
