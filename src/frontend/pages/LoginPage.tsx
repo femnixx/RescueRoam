@@ -56,6 +56,7 @@ const LoginPage = () => {
         <p className="ms-5 mt-5">Don't have an account? <Link to="/Signup" className="font-semibold hover:cursor-pointer hover:underline">Sign Up</Link></p>
         </div>
       </form>
+      <p> Hi there</p>
     </>
   );
 };
