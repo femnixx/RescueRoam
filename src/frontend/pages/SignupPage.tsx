@@ -6,6 +6,7 @@ import { auth, db } from "../../backend/Firebase.ts"
 import { Navigate, useNavigate } from "react-router-dom";
 import LoginPage from "./LoginPage.tsx";
 import { collection, doc, setDoc, addDoc } from "firebase/firestore";
+import { Outlet, Link } from "react-router-dom";
 
 const SignupPage = () => {
 
@@ -62,7 +63,11 @@ const SignupPage = () => {
         </div>
         <button type="submit" className="ps-5 mt-5 px-2 border-1 rounded-lg flex justify-center items-center ml-5">Submit</button>
 
-        <button className="border-1 ms-5 mt-5 rounded-lg">Return to landing page</button>
+        <div className="mt-5 ">
+          <Link to="/" className="ms-5 border-1 px-3 py-1 rounded-lg">Return to landing page</Link>
+        </div>
+        <p className="mt-5 ms-5">Already have an account? <Link className="font-semibold hover:cursor-pointer hover:underline" to="/Login">Sign In</Link></p>
+      
       </form>
     </>
   );
