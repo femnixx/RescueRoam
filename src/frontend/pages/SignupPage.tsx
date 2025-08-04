@@ -1,5 +1,5 @@
 import React from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { useState } from "react";
 import { FirebaseError } from "firebase/app";
 import { auth, db } from "../../backend/Firebase.ts"
@@ -30,6 +30,7 @@ const SignupPage = () => {
       email: email,
       createdAt: new Date()
     });
+      signOut(auth);
       console.log("Successfully signed in with user: " + createUser.user.uid)
       navigate("/Login")
     } 
