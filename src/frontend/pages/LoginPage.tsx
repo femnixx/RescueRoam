@@ -50,6 +50,9 @@ const LoginPage = () => {
             </div>
           </div>
           <button type="submit" className="ps-5 mt-5 px-2 border-1 rounded-lg flex justify-center items-center ml-5 text-center">Submit</button>
+        <div className="mt-5 ">
+                  <Link to="/" className="ms-5 border-1 px-3 py-1 rounded-lg">Return to landing page</Link>
+                </div>
         <p className="ms-5 mt-5">Don't have an account? <Link to="/Signup" className="font-semibold hover:cursor-pointer hover:underline">Sign Up</Link></p>
         </div>
       </form>
