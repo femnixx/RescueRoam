@@ -50,7 +50,7 @@ const LoginPage = () => {
             </div>
           </div>
           <button type="submit" className="ps-5 mt-5 px-2 border-1 rounded-lg flex justify-center items-center ml-5 text-center">Submit</button>
-        <Link to="/Login"></Link>
+        <p className="ms-5 mt-5">Already have an account? <Link to="/Login" className="font-semibold hover:cursor-pointer hover:underline">Sign In</Link></p>
         </div>
       </form>
     </>
