@@ -48,7 +48,7 @@ const LoginPage = () => {
             </div>
           </div>
           <button type="submit" className="ps-5 mt-5 px-2 border-1 rounded-lg flex justify-center items-center ml-5">Submit</button>
-
+        <p className="">Hi there</p>
         </div>
       </form>
     </>
