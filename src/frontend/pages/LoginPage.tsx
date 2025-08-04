@@ -6,6 +6,8 @@ import { FirebaseError } from "firebase/app";
 import { useNavigate } from "react-router-dom";
 import { Firestore } from "firebase/firestore";
 import { db } from "../../backend/Firebase"
+import { Outlet, Link } from "react-router-dom";
+
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -48,7 +50,7 @@ const LoginPage = () => {
             </div>
           </div>
           <button type="submit" className="ps-5 mt-5 px-2 border-1 rounded-lg flex justify-center items-center ml-5 text-center">Submit</button>
-        <p className="ms-5 mt-5">Already have an account? <strong className="font-semibold hover:underline hover:cursor-pointer">Sign In</strong></p>
+        <Link to="/Login"></Link>
         </div>
       </form>
     </>

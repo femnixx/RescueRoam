@@ -29,7 +29,6 @@ const SignupPage = () => {
       email: email,
       createdAt: new Date()
     });
-      window.alert(`Successfully signed in with username ` + username + " with user ID: " + createUser.user.uid) 
       console.log("Successfully signed in with user: " + createUser.user.uid)
       navigate("/Login")
     } 
