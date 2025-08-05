@@ -57,9 +57,12 @@ useEffect(() => {
     
   return (
       <>
-      <div className="flex gap-x-5 mt-5 justify-between mx-5">
-        <p>Currently signed in as: {username}</p>
-        <form onClick={handleLogOut}><button className="hover:cursor-pointer border-1 rounded-lg ps-5">Sign out</button></form>
+      <div className="flex flex-col gap-x-5 mt-5 justify-between mx-5">
+        <div className='flex justify-between w-full'>
+          <p>Currently signed in as: {username}</p>
+          <form onClick={handleLogOut}><button className="hover:cursor-pointer border-1 rounded-lg ps-5">Sign out</button></form>
+        </div>
+          <p className='mt-5'>hi there</p>
         </div>
         </>
     )
