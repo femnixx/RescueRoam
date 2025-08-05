@@ -62,7 +62,7 @@ useEffect(() => {
           <p>Currently signed in as: {username}</p>
           <form onClick={handleLogOut}><button className="hover:cursor-pointer border-1 rounded-lg ps-5">Sign out</button></form>
         </div>
-          <p className='mt-5'>hi there</p>
+          <p className='mt-5'>images</p>
         </div>
         </>
     )
