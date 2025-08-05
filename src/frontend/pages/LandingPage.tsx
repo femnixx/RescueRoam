@@ -4,11 +4,15 @@ import { Outlet, Link } from "react-router-dom";
 import {auth} from "../../backend/Firebase";
 import firebase from "firebase/compat/app";
 import { FirebaseError } from "firebase/app";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../backend/Firebase.ts" 
 
 const LandingPage = () => {
   const user = auth.currentUser;
   const displayName = user?.displayName;
   const displayEmail = user?.email;
+
+  const docRef = doc(db, "users", "")
 
   // handle signout
   const handleLogOut = () => {
@@ -30,9 +34,8 @@ const LandingPage = () => {
   if (user !== null) {
     return (
       <>
-      <div>
-        <p>Currently signed in as: {displayEmail}</p>
-        <p>Click here to sign out: </p>
+      <div className="flex gap-x-5 mt-5 justify-between mx-5">
+        <p>Currently signed in as: {}</p>
         <form onClick={handleLogOut}><button className="hover:cursor-pointer border-1 rounded-lg ps-5">Sign out</button></form>
         </div>
         </>
