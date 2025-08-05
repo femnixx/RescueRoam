@@ -1,5 +1,5 @@
 import React from "react";
-import { getAuth, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut, updateCurrentUser } from "firebase/auth";
 import { useState } from "react";
 import { FirebaseError } from "firebase/app";
 import { auth, db } from "../../backend/Firebase.ts"
@@ -26,12 +26,14 @@ const SignupPage = () => {
         // add a new document 
     await setDoc(doc(db, "users", createUser.user.uid), {
       uid: createUser.user.uid,
-      username: username,
+      displayName: username,
       email: email,
       createdAt: new Date()
-    });
-      signOut(auth);
+    }
+  );
+      
       console.log("Successfully signed in with user: " + createUser.user.uid)
+      signOut(auth);
       navigate("/Login")
     } 
     } catch (error) {

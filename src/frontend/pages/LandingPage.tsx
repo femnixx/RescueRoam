@@ -9,10 +9,13 @@ import { db } from "../../backend/Firebase.ts"
 
 const LandingPage = () => {
   const user = auth.currentUser;
-  const displayName = user?.displayName;
   const displayEmail = user?.email;
+  const displayID = user?.uid;
 
-  const docRef = doc(db, "users", "")
+  // handle getDoc 
+  
+  
+
 
   // handle signout
   const handleLogOut = () => {
