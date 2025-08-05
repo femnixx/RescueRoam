@@ -6,15 +6,36 @@ import firebase from "firebase/compat/app";
 import { FirebaseError } from "firebase/app";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../backend/Firebase.ts" 
+import { useEffect } from "react";
 
 const LandingPage = () => {
   const user = auth.currentUser;
   const displayEmail = user?.email;
-  const displayID = user?.uid;
+  const userID = user?.uid;
+  const displayName = user?.displayName;
+  const [username, setUsername] = useState('Guest');
 
-  // handle getDoc 
-  
-  
+  useEffect(() => {
+    const fetchUsername = async () => {
+      if (userID) {
+        try {
+          const docRef = doc(db, "users", userID);
+          const docSnap = await getDoc(docRef);
+
+          if (docSnap.exists()) {
+            const userData = docSnap.data();
+            setUsername(userData.displayName);
+            console.log("Document data: ", userData);
+          } else {
+            console.log("Such document does not exist.")
+          }
+        } catch (error) {
+          console.error("Error fetching user document:", error);
+        }
+      }
+    };
+    fetchUsername();
+  }, [userID]);
 
 
   // handle signout
@@ -38,7 +59,7 @@ const LandingPage = () => {
     return (
       <>
       <div className="flex gap-x-5 mt-5 justify-between mx-5">
-        <p>Currently signed in as: {}</p>
+        <p>Currently signed in as: {username}</p>
         <form onClick={handleLogOut}><button className="hover:cursor-pointer border-1 rounded-lg ps-5">Sign out</button></form>
         </div>
         </>
