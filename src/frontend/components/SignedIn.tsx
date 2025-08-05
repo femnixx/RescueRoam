@@ -5,11 +5,12 @@ import { useEffect } from "react";
 import {auth} from "../../backend/Firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
+import { useNavigate } from 'react-router-dom';
 
 const SignedIn = () => {
 const user = auth.currentUser;
 const userID = user?.uid;
-
+const navigate = useNavigate();
 const [username, setUsername] = useState("Guest");
 useEffect(() => {
     const fetchUsername = async () => {
@@ -40,6 +41,8 @@ useEffect(() => {
         if (!user) {
           window.alert('Successfully logged out.')
           console.log("User session ended.")
+          navigate("/")
+
         } 
       } catch (error) {
         if (FirebaseError) {
