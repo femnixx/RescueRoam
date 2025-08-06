@@ -3,6 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 import {auth} from "../../backend/Firebase";
 import SignedIn from "../components/SignedIn";
 
+// Landing page page
 const LandingPage = () => {
   const user = auth.currentUser;
   const displayEmail = user?.email;
