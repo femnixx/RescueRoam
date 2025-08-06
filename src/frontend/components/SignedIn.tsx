@@ -12,6 +12,8 @@ const user = auth.currentUser;
 const userID = user?.uid;
 const navigate = useNavigate();
 const [username, setUsername] = useState("Guest");
+
+// useeffect for fetching username
 useEffect(() => {
     const fetchUsername = async () => {
       if (userID) {
