@@ -17,7 +17,6 @@ const firebaseConfig = {
   messagingSenderId: "717889592198",
   appId: "1:717889592198:web:a842fae1f0a6574375ea07",
   measurementId: "G-2M5M0WD1SD",
-  databaseURL:"https://console.firebase.google.com/project/rescueroam-dbc1a/database/rescueroam-dbc1a-default-rtdb/data/~2F"
 };
 
 // Initialize Firebase
@@ -25,5 +24,4 @@ export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const auth = getAuth(app);
 export const db = getFirestore(app); 
-export const realtimeDB = getDatabase(app);
 
