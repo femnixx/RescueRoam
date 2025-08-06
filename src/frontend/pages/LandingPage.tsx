@@ -11,6 +11,7 @@ const LandingPage = () => {
   const displayName = user?.displayName;
   const [username, setUsername] = useState('Guest');
 
+  // Validation if user is not logged in
   if (user !== null) {
     return (
       <>
