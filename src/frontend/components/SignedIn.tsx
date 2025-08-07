@@ -6,7 +6,7 @@ import {auth} from "../../backend/Firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
 import { useNavigate } from 'react-router-dom';
-
+import Hamburger from "../components/Hamburger.tsx"
 const SignedIn = () => {
 const user = auth.currentUser;
 const userID = user?.uid;
@@ -50,7 +50,7 @@ useEffect(() => {
         if (FirebaseError) {
           console.log("Firebase error occured: ", FirebaseError)
         } else {
-          console.log("Unexpted error occured: ", error)
+          console.log("Unexpected error occured: ", error)
         }
       }
     }
@@ -59,12 +59,18 @@ useEffect(() => {
     
   return (
       <>
+      
+      {/* Hamburger */}
+      <div>
+      
+      {/* <Hamburger></Hamburger> */}
+      </div>
       <div className="flex flex-col gap-x-5 mt-5 justify-between mx-5">
-        <div className='flex gap-x-5 justify-between w-full'>
-          <p>{username}</p>
-          <div className='flex gap-x-2 items-center justify-center'>
-            <form onClick={handleLogOut}><button className="hover:cursor-pointer border-1 rounded-lg px-2">Sign out</button></form>
-            <button className='border-1 px-2'>=</button>
+        <div className='flex gap-x-5 justify-between w-full items-center'>
+          <p className='text-xs'>{username}</p>
+          <div className='flex gap-x-2 items-center justify-center text-sm'>
+            <form onClick={handleLogOut}><button className="text-xs border-1 px-1">Sign out</button></form>
+            <button className='border-1 px-1'>=</button>
           </div>
         
         </div>

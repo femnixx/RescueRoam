@@ -27,7 +27,16 @@ const LandingPage = () => {
       <div className="flex flex-col gap-y-2  items-start ps-5">
         <Link to="/Login">Link to Sign In</Link>
         <Link to="/Signup">Link to Sign Up</Link>
+        <div className="mt-5 gap-y-2 flex flex-col">
+          <p>Signing up is optional, but what you'll gain:</p>
+          <p>- Easier paperwork</p>
+          <p>- Verified badge</p>
+          <p>- Earning up points for rewards</p>
+          <p>- Happy ever after story access</p>
+        </div>
+      
       </div>
+
     </>
   );
 };
