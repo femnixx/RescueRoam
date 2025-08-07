@@ -33,14 +33,49 @@ const LandingPage = () => {
           <p>- Verified badge</p>
           <p>- Earning up points for rewards</p>
           <p>- Happy ever after story access</p>
-
           <div className="mt-10 flex flex-col gap-y-5 justify-center items-center">
             <p>image carousel goes here</p>
             <p>image carousel goes here</p>
+        </div>
+        <p>Some of our top stories:</p>
+        <div className="flex">
+          <div className="flex gap-x-10">
+        </div>
+          <div>
+            <p>big image</p>
+          </div>
+          <div>
+            <div className="flex flex-col">
+              <p> animal identity, name, etc</p>
+              <p>owner</p>
+              <p>background, description, etc, paragraph</p>
+            </div>
+          </div>
+          <div>
+            <p>big image</p>
+          </div>
+          <div>
+            <div className="flex flex-col">
+              <p> animal identity, name, etc</p>
+              <p>owner</p>
+              <p>background, description, etc, paragraph</p>
+            </div>
+          </div>
+          <div>
+            <p>big image</p>
+          </div>
+          <div>
+            <div className="flex flex-col">
+              <p> animal identity, name, etc</p>
+              <p>owner</p>
+              <p>background, description, etc, paragraph</p>
+            </div>
+          </div>
+          {/* etc... */}
+        </div>
           </div>
           <p className="mt-10">some other message like achievements and stuff</p>
           <p>Copyight and also protected by etc etc</p>
-        </div>
       
       </div>
 
