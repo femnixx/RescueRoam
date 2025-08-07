@@ -64,10 +64,13 @@ useEffect(() => {
           <p>Currently signed in as: {username}</p>
           <form onClick={handleLogOut}><button className="hover:cursor-pointer border-1 rounded-lg ps-5">Sign out</button></form>
         </div>
-          <p className='mt-5'>images</p>
+          <button className='border-1'>Report Stray</button>
+          <button className='border-1'>My Reports</button>
+          <button className='border-1'>Adopt</button>
+          <button className='border-1'>Pet Shops Near Me</button>
         </div>
         </>
     )
 }
 
-export default SignedIn
+export default SignedIn;
